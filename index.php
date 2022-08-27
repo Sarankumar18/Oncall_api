@@ -1,19 +1,42 @@
-<?php
+<html>
+  <head>
+    <title>PHP Test</title>
+   
+  </head>
+  <body>
+    <?php echo '<p>Hello World</p>';
 
-require 'dbconfig.php';
+//Define your database name here.
+$HostName = "sql212.epizy.com";
+ 
+//Define your database name here.
+$DatabaseName = "epiz_32431871_Stepahead";
+ 
+//Define your database username here.
+$HostUser = "epiz_32431871";
+ 
+//Define your database password here.
+$HostPass = "zilJDrlSjGPL";
 
-$sql = "SELECT Id FROM Employee_info WHERE Name='Active'";
-$result = $conn->query($sql);
-$phno;
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      $phno =  $row["Id"];
-    }
-  } else {
-    $phno = "0 results";
+$conn = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
   }
- $myarr = array("Name"=>$phno);
-  echo json_encode($myarr);
-  $conn->close();
-?>
+else{
+    echo "Connected";
+}
+
+
+
+
+
+?> 
+
+    <!--
+    This script places a badge on your repl's full-browser view back to your repl's cover
+    page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+    teal, blue, blurple, magenta, pink!
+    -->
+    <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+  </body>
+</html>
